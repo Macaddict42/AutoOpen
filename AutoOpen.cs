@@ -165,6 +165,8 @@ namespace AutoOpen
                 if (Settings.chests)
                     if (entity.HasComponent<Chest>() || entity.Path.ToLower().Contains("chest"))
                     {
+                        if(!entity.HasComponent<Chest>())
+                            continue;
                         var isOpened = entity.GetComponent<Chest>().IsOpened;
                         var whitelisted = chestWhitelist != null && chestWhitelist.Contains(entity.Path);
 
